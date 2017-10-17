@@ -1,0 +1,16 @@
+
+vl_list:
+    path:    /
+    defaults: { _controller: VLCrudBundle:Crud:list }
+
+vl_add:
+    path:    /add
+    defaults: { _controller:VLCrudBundle:Crud:add }
+
+vl_edit:
+    path:    /edit/{id}
+    defaults: { _controller:VLCrudBundle:Crud:edit }
+
+vl_delete:
+    path: /delete/{id}
+    defaults: { _controller:VLCrudBundle:Crud:delete }

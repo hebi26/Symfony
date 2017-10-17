@@ -1,0 +1,17 @@
+{% extends "VLCrudBundle::layout.html.twig" %}
+
+{% block body %}
+
+<a href="{{ path('vl_list') }}"> Liste des articles</a>
+
+<h1>Ajouter un article</h1>
+
+<div class="well">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    <button type="submit">Send</button>
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}
+
