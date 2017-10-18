@@ -1,4 +1,3 @@
-
 vl_list:
     path:    /
     defaults: { _controller: VLCrudBundle:Crud:list }
@@ -12,5 +11,5 @@ vl_edit:
     defaults: { _controller:VLCrudBundle:Crud:edit }
 
 vl_delete:
-    path: /delete/{id}
+    path:    /delete/{id}
     defaults: { _controller:VLCrudBundle:Crud:delete }

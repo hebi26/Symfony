@@ -24,6 +24,11 @@ class CrudController extends Controller
 
     public function addAction(Request $request)
     {
+
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('vl_list');
+        }
+
         $listarticles = new listarticles();
 
         $form = $this->createForm(listarticlesType::class, $listarticles);
@@ -46,7 +51,9 @@ class CrudController extends Controller
     }
     public function editaction(Request $request, listarticles $listarticles, $id)
     {
-
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('vl_list');
+        }
         $form = $this->createForm(listarticlesType::class, $listarticles);
 
         $form->handleRequest($request);
@@ -66,7 +73,12 @@ class CrudController extends Controller
         ));
     }
 
-        public function deleteAction(listarticles $listarticles){
+        public function deleteAction(listarticles $listarticles)
+        {
+            if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+                return $this->redirectToRoute('vl_list');
+            }
+
             $em=$this->getDoctrine()->getManager();
             $em->remove($listarticles);
             $em->flush();

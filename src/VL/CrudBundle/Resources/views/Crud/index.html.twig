@@ -2,7 +2,9 @@
 
 {% block body %}
 
-<a href="{{ path('vl_add') }}"> Ajouter un article</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('vl_add') }}"> Ajouter un article</a>
+    {%  endif %}
 
 <h1>Liste des articles</h1>
 <div class="middle">
@@ -12,9 +14,13 @@
     <br>
     <img src="{{ article.media }}" alt="media de l'article">
     <p>{{ article.content }}</p>
+
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('vl_edit', {'id':article.id}) }}">Modifier l'article</a>
     <a href="{{ path('vl_delete', {'id':article.id}) }}">Supprimer l'article</a>
+    {% endif %}
     <hr>
+
 {% endfor %}
 </div>
 

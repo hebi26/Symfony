@@ -1,6 +1,7 @@
 {% extends "VLCrudBundle::layout.html.twig" %}
 
 {% block body %}
+{% if is_granted('ROLE_ADMIN') %} %}
 
     <a href="{{ path('vl_list') }}"> Liste des articles</a>
     <a href="{{ path('vl_add') }}"> Ajouter un article</a>
@@ -15,5 +16,5 @@
             {{ form_end(form) }}
         </div>
 
-
+    {% endif %}
 {% endblock %}
