@@ -44,6 +44,19 @@ class listarticles
      * @var string
      *
      * @ORM\Column(name="media", type="string", length=255)
+     *
+     * @Assert\Image(
+     * mimeTypes = {
+     *  "image/png",
+     *  "image/pnjpeg",
+     *  "image/jpeg",
+     *  "image/jpg",
+     *  "image/gif"
+     * },
+     * mimeTypesMessage="Format pas accepté",
+     * maxSize = "10M",
+     * maxSizeMessage="Taille trop grande"
+     * )
      */
     private $media;
 
@@ -68,6 +81,8 @@ public function __construct()
 {
     $this->date = new \Datetime();
 }
+
+//
 
     /**
      * Get id
@@ -150,6 +165,7 @@ public function __construct()
     {
         return $this->media;
     }
+
 
     /**
      * Set content

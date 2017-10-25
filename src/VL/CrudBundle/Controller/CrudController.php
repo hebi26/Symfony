@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use VL\CrudBundle\Entity\listarticles;
 use VL\CrudBundle\Form\listarticlesType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 
 class CrudController extends Controller
@@ -16,6 +19,8 @@ class CrudController extends Controller
         $repository = $this->getDoctrine()->getRepository('VLCrudBundle:listarticles');
 
         $listarticles= $repository->findAll();
+
+
 
         return $this->render('VLCrudBundle:Crud:index.html.twig', array(
             'articles'=>$listarticles,
@@ -30,12 +35,32 @@ class CrudController extends Controller
         }
 
         $listarticles = new listarticles();
-
         $form = $this->createForm(listarticlesType::class, $listarticles);
-
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $title = $listarticles->getTitle();
+            $author = $listarticles->getAuthor();
+            $content = $listarticles->getContent();
+            $date = $listarticles->getDate();
+
+            $file = $form['media']->getData();
+            $extension = $file->guessExtension();
+
+            $fileName = 'image'.rand(1, 99999999999).'.'.$extension;
+
+            $file->move(
+                $this->getParameter('ImageDirectory'), $fileName
+            );
+
+
+            $listarticles->setTitle($title);
+            $listarticles->setAuthor($author);
+            $listarticles->setContent($content);
+            $listarticles->setDate($date);
+            $listarticles->setMedia($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($listarticles);
             $em->flush();
@@ -49,6 +74,9 @@ class CrudController extends Controller
         ));
 
     }
+//    ================================================================================================
+//-------------------------------------------EDIT-----------------------------------------------------
+
     public function editaction(Request $request, listarticles $listarticles, $id)
     {
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
@@ -59,8 +87,19 @@ class CrudController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
 
+            $file = $form['media']->getData();
+            $extension = $file->guessExtension();
+
+            $fileName = 'image'.rand(1, 99999999999).'.'.$extension;
+
+            $file->move(
+                $this->getParameter('ImageDirectory'), $fileName
+            );
+
+            $listarticles->setMedia($fileName);
+
+            $em = $this->getDoctrine()->getManager();
             $em->flush();
 
             return new Response('Article modifié');

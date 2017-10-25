@@ -2,26 +2,26 @@
 
 {% block body %}
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('vl_add') }}"> Ajouter un article</a>
-    {%  endif %}
+    <div class="jumbotron titre">
+        <h1>Liste des articles</h1>
+    </div>
 
-<h1>Liste des articles</h1>
-<div class="middle">
-{% for article in articles %}
-    <h3>{{ article.title }}</h3>
-    <i>by {{ article.author }}, le {{ article.date|date("jj/mm/YY") }}</i>
-    <br>
-    <img src="{{ article.media }}" alt="media de l'article">
-    <p>{{ article.content }}</p>
+<div class="main">
+    {% for article in articles %}
+        <div class="jumbotron article">
+            <h3>{{ article.title }}</h3>
+            <i>by {{ article.author }}, le {{ article.date|date("jj/mm/YY") }}</i>
+            <br>
+            <img class="img-fluid" src="{{ asset('/uploads/' ~ article.media) }}" alt="media de l'article">
+            <p>{{ article.content }}</p>
+
 
     {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('vl_edit', {'id':article.id}) }}">Modifier l'article</a>
-    <a href="{{ path('vl_delete', {'id':article.id}) }}">Supprimer l'article</a>
+    <a class="btn btn-primary edit" href="{{ path('vl_edit', {'id':article.id}) }}">Modifier l'article</a>
+    <a class="btn btn-danger delete" href="{{ path('vl_delete', {'id':article.id}) }}">Supprimer l'article</a>
     {% endif %}
-    <hr>
+        </div>
 
 {% endfor %}
 </div>
-
 {% endblock %}
