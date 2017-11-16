@@ -3,14 +3,14 @@
 {% block body %}
 {% if is_granted('ROLE_ADMIN') %}
 
-    <div class="jumbotron titre">
-        <h1>Modification de l'article {{  id }}</h1>
+    <div class="jumbotron titre titre3">
+        <h1>Modification de l'article {{ id }}</h1>
     </div>
 <div class="main">
         <div class="well">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
             {{ form_widget(form) }}
-            <button class="btn btn success" type="submit">Valider</button>
+            <button class="btn btn success valid" type="submit">Valider</button>
             {{ form_end(form) }}
         </div>
 </div>

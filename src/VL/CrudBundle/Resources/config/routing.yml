@@ -13,3 +13,7 @@ vl_edit:
 vl_delete:
     path:    /delete/{id}
     defaults: { _controller:VLCrudBundle:Crud:delete }
+
+vl_view:
+    path: /view/{id}
+    defaults: { _controller:VLCrudBundle:Crud:view }

@@ -1,17 +1,17 @@
 {% extends "VLCrudBundle::layout.html.twig" %}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_USER') %}
 
 
-            <div class="jumbotron titre">
+            <div class="jumbotron titre titre2">
 <h1>Ajouter un article</h1>
             </div>
         <div class="main">
 <div class="well">
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_widget(form) }}
-    <button class="btn btn-success" type="submit">Valider</button>
+    <button class="btn btn-success valid" type="submit">Valider</button>
     {{ form_end(form) }}
 </div>
         </div>

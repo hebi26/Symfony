@@ -1,6 +1,6 @@
 <?php
 
-namespace VL\UserBundle\Repository;
+namespace VL\CrudBundle\Repository;
 
 /**
  * UserRepository

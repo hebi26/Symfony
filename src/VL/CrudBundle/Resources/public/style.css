@@ -4,7 +4,7 @@ background-image: url('ville.jpg');
     background-size: cover;
 }
 .main{
-    width: 50%;
+    width: 70%;
     margin: auto;
     text-align: center;
     color : white;
@@ -12,62 +12,56 @@ background-image: url('ville.jpg');
 
 .menu{
     position: fixed;
-    background-color: #303030;
+    background-color: black;
     width: 100%;
     top: 0;
     color: white;
-    height: 50px;
+    height: 80px;
+    display: flex;
+    overflow: hidden;
+    z-index: 1;
 }
-.menu i{
-    font-weight: bold;
-    color: greenyellow;
-}
-a{
-    margin-right: 50px;
-    color: white;
 
-}
-a:hover{
-    margin-top: -6px !important;
-    margin-right: 32px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    text-shadow: 5px 5px 5px black;
-    color: gold;
-    transition: 300ms;
-
-}
 .titre{
-    margin-top: 24px;
+    margin-top: 50px;
     overflow: hidden;
     text-align: center;
 }
 .jumbotron {
-background-color: rgba(0,0,0,0.8);
+background-color: rgba(0,0,0,0.9);
+
     border: none;
 }
 .article{
-    margin-top: 100px;
-    color: black;
-    background-color: white;
-    box-shadow: 5px 5px 5px black;
+    padding: 20px 10px 20px 10px;
+    margin-top: 20px;
+    color: white;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 0;
+}
+.titre{
+    height: 150px;
 }
 .titre h1{
+    padding-top: 10px;
+    font-family: "Black Ops One";
     color: white;
+    text-shadow: -5px 5px 5px black;
 }
 
-.boxlink{
-    display: flex;
-    flex-direction: row;
+.titre1, .titre2, .titre3{
+
+    background-size: cover;
+    box-shadow: 0px 20px 20px black;
 }
-.link1{
-    margin-top: 12px;
-    margin-left: 50px;
+.titre1{
+    background-image: url('banyellow.jpg');
 }
-.link2{
-    margin-top: -23px;
-    margin-left: 200px;
+.titre2{
+    background-image: url('bangreen.jpg');
+}
+.titre3{
+    background-image: url('banred.jpg');
 }
 .titreadd{
     margin-top: 100px;
@@ -75,7 +69,7 @@ background-color: rgba(0,0,0,0.8);
 .well{
     margin-top: 100px;
     margin-bottom: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 50px 50px;
     border-radius: 5px;
     width: 100%;
@@ -111,15 +105,154 @@ background-color: rgba(0,0,0,0.8);
     font-style: italic;
     box-shadow: none;
 }
-.btn-success{
+.valid{
     padding: 10px 30px;
+
+}
+.valid:hover{
+    margin-bottom: -6px;
+    font-size: 20px;
+    transition: 200ms;
+    text-shadow: 1px 2px 2px black;
 }
 .edit, .delete{
-    margin: inherit;
+    font-family: "Black Ops One";
+    margin-top : 20px;
+    margin-right: 5px;
+    width: 90px;
+    font-size: 10px;
 }
+
 .edit:hover, .delete:hover{
-    margin: inherit;
+    margin-top: 14px;
+    margin-right: 5px;
     text-shadow: none;
     box-shadow: 5px 5px 5px black;
+    transition: 200ms;
+    font-size: 12px;
+    text-shadow: 1px 2px 2px black;
+    width: 100px;
+}
 
+#l1, #l2, #l3{
+    font-family: "Black Ops One";
+    border-radius: 50%;
+    padding: 4px 7px;
+
+    font-size: 18px;
+}
+#l1{
+    background-color: deepskyblue;
+}
+#l2{
+    background-color: deeppink;
+}
+
+#l3{
+    background-color: orange;
+    padding: 4px 9px;
+}
+#sl1, #sl2, #sl3{
+    font-family: "Nixie One";
+    font-size: 12px;
+}
+
+#sl1{
+    color: deepskyblue;
+}
+#sl2{
+    color: deeppink;
+}
+#sl3{
+    color: orange;
+}
+.uptitle{
+    margin-bottom: 0px;
+}
+.pagetitle{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.mainNav{
+    padding: 15px 20px 15px 20px;
+}
+.btnprofile{
+padding: 3px 3px 3px 3px;
+    font-size: 12px;
+    font-family: Black Ops One;
+
+}
+.profile{
+    border: 3px solid yellowgreen;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 4px 4px;
+    font-weight: bold;
+    color: yellowgreen;
+}
+.adminNav{
+    padding: 6px 5px 0px 40px;
+}
+.std{
+    font-family: Nixie One;
+    font-weight: bold;
+    font-style: italic;
+    color : white;
+    font-size: 12px;
+}
+.stdgreen{
+    padding: 0px 8px 5px 10px;
+}
+.stdyellow{
+    padding: 0px 8px 5px 8px;
+}
+.stdgreen:hover{
+color : white;
+    border-top : none;
+    text-decoration : none;
+    padding: 0px 2px 5px 8px;
+    font-size: 14px;
+    text-shadow: 0 0 5px green, 0 0 15px lightgreen, 0 0 25px yellowgreen;
+}
+.stdyellow:hover{
+    padding: 0px 5px 5px 6px;
+color: white;
+    border-top : none;
+    text-decoration : none;
+    font-size: 14px;
+    text-shadow: 0 0 5px orangered, 0 0 15px orange, 0 0 25px yellow;
+}
+.articletitle{
+font-family: Bungee;
+    margin-bottom: 0px;
+    color : white;
+    font-size: 20px;
+}
+
+
+.bigarticletitle{
+    font-family: Bungee;
+    color : white;
+}
+.articledetails{
+    font-family: "Nixie One";
+    font-size: 12px;
+}
+.articleauthor{
+    color: yellowgreen;
+}
+.articlecontent{
+    margin-top: 20px;
+font-family: Wire One;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.vignette{
+    /*width: 50%;*/
+    height: 100px;
+}
+.fullimg{
+    height: 100%;
 }

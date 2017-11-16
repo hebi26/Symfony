@@ -1,0 +1,24 @@
+{% extends "VLCrudBundle::layout.html.twig" %}
+
+{% block body %}
+
+    <div class="jumbotron titre titre1">
+        <h1>Article {{ article.id }}</h1>
+    </div>
+
+    <div class="main">
+                    <div class="jumbotron article">
+
+                        <h3 class="bigarticletitle">{{ article.title }}</h3>
+                        <i class="articledetails">by <strong class="articleauthor">{{ article.author }}</strong>, le {{ article.date|date("jj/mm/YY") }}</i><br>
+                        <img class="fullimg img-fluid" src="{{ asset('/uploads/' ~ article.media) }}" alt="media de l'article"><br>
+                        <p class="articlecontent">{{ article.content }}</p>
+
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-primary edit" href="{{ path('vl_edit', {'id':article.id}) }}">Modifier</a>
+                            <a class="btn btn-danger delete" href="{{ path('vl_delete', {'id':article.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')">Supprimer</a>
+                        {% endif %}
+                    </div>
+    </div>
+{% endblock %}

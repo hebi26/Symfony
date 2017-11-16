@@ -125,4 +125,16 @@ class CrudController extends Controller
             return new Response('Article supprimé');
         }
 
+        public function viewAction($id)
+        {
+            $repository = $this->getDoctrine()->getRepository('VLCrudBundle:listarticles');
+
+            $article= $repository->find($id);
+
+
+            return $this->render('VLCrudBundle:Crud:oneview.html.twig', array(
+                'article'=>$article,
+            ));
+
+        }
 }
